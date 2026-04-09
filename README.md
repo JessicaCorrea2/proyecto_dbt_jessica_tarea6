@@ -1,30 +1,25 @@
-\# Proyecto dbt - Tarea 6: Calidad, testing y documentación de datos
+# Proyecto dbt - Tarea 6: Calidad, testing y documentación de datos
 
 
 
-\## Descripción
+## Descripción
 
 Este proyecto fue desarrollado como parte de la \*\*tarea práctica de la Clase 6: Calidad y Testing de Datos\*\* del curso \*Introducción a la Ingeniería de Datos\*. El objetivo es extender el proyecto dbt base incorporando testing, documentación y validación completa del pipeline con `dbt build`.
 
 
 
-\## Objetivo
+## Objetivo
 
 Actualizar el proyecto dbt para incluir:
 
 
 
-\- instalación de `dbt-expectations`
-
-\- tests genéricos nativos de dbt
-
-\- tests avanzados con `dbt-expectations`
-
-\- singular tests personalizados
-
-\- documentación de modelos y columnas clave
-
-\- captura del DAG con documentación generada
+- instalación de `dbt-expectations`
+- tests genéricos nativos de dbt
+- tests avanzados con `dbt-expectations`
+- singular tests personalizados
+- documentación de modelos y columnas clave
+- captura del DAG con documentación generada
 
 
 
@@ -32,29 +27,29 @@ Todos los tests deben pasar correctamente con `dbt build`. :contentReference\[oa
 
 
 
-\## Arquitectura del flujo
+## Arquitectura del flujo
 
-\*\*Airbyte Cloud → MotherDuck → dbt\*\*
-
-
-
-\- \*\*Airbyte Cloud\*\*: extracción y carga de datos
-
-\- \*\*MotherDuck\*\*: almacenamiento de datos
-
-\- \*\*dbt\*\*: transformación, testing y documentación
+*\*Airbyte Cloud → MotherDuck → dbt\*\*
 
 
 
-\## Fuentes de datos utilizadas
+- \*\*Airbyte Cloud\*\*: extracción y carga de datos
+
+- \*\*MotherDuck\*\*: almacenamiento de datos
+
+- \*\*dbt\*\*: transformación, testing y documentación
+
+
+
+## Fuentes de datos utilizadas
 
 Se trabajó con dos tablas crudas cargadas por Airbyte en la base `airbyte\_curso`, esquema `main`:
 
 
 
-\- `pokemon`
+- `pokemon`
 
-\- `iris\_raw`
+- `iris\_raw`
 
 
 
