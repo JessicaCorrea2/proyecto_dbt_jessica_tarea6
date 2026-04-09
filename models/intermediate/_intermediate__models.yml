@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: int_pokemon_enriched
+    description: "Modelo intermedio que enriquece los datos de Pokemon extrayendo campos desde estructuras JSON."
+    columns:
+      - name: pokemon_id
+        description: "Identificador único del Pokemon."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_pokeapi__pokemon')
+              field: pokemon_id
+
+      - name: pokemon_name
+        description: "Nombre del Pokemon."
+
+      - name: species_name
+        description: "Nombre de la especie extraído del JSON species."
+
+      - name: type_primary
+        description: "Tipo principal del Pokemon."
+
+      - name: type_secondary
+        description: "Tipo secundario del Pokemon, si existe."
+
+      - name: base_experience
+        description: "Experiencia base del Pokemon."

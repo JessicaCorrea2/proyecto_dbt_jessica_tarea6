@@ -1,0 +1,97 @@
+version: 2
+
+models:
+  - name: stg_pokeapi__pokemon
+    description: "Datos de Pokemon limpiados desde la PokeAPI."
+    tests:
+      - dbt_expectations.expect_table_row_count_to_be_between:
+          min_value: 1
+          max_value: 10
+    columns:
+      - name: pokemon_id
+        description: "Identificador único del Pokemon."
+        tests:
+          - unique
+          - not_null
+
+      - name: pokemon_name
+        description: "Nombre del Pokemon."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_match_regex:
+              regex: '^[a-z0-9\-]+$'
+
+      - name: height
+        description: "Altura del Pokemon en la unidad provista por la API."
+        tests:
+          - not_null
+
+      - name: weight
+        description: "Peso del Pokemon en la unidad provista por la API."
+        tests:
+          - not_null
+
+      - name: base_experience
+        description: "Experiencia base del Pokemon."
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 1000
+
+      - name: pokemon_order
+        description: "Orden interno reportado por la API."
+
+      - name: is_default
+        description: "Indica si es la forma por defecto del Pokemon."
+
+      - name: location_area_encounters
+        description: "URL de encuentros por zona."
+
+      - name: species
+        description: "Objeto JSON con información de especie."
+
+      - name: types
+        description: "Arreglo JSON con los tipos del Pokemon."
+
+      - name: stats
+        description: "Arreglo JSON con estadísticas base."
+
+      - name: sprites
+        description: "Objeto JSON con imágenes del Pokemon."
+
+  - name: stg_iris__raw
+    description: "Datos del dataset Iris limpiados desde la tabla raw cargada por Airbyte."
+    tests:
+      - dbt_expectations.expect_table_row_count_to_be_between:
+          min_value: 100
+          max_value: 200
+    columns:
+      - name: iris_id
+        description: "Identificador secuencial generado en dbt."
+        tests:
+          - unique
+          - not_null
+
+      - name: species
+        description: "Especie de la flor Iris."
+        tests:
+          - not_null
+
+      - name: sepal_length
+        description: "Longitud del sépalo."
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 4
+              max_value: 8
+
+      - name: sepal_width
+        description: "Ancho del sépalo."
+
+      - name: petal_length
+        description: "Longitud del pétalo."
+
+      - name: petal_width
+        description: "Ancho del pétalo."
+
+      - name: extracted_at
+        description: "Fecha y hora de extracción registradas por Airbyte."

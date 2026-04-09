@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: obt_pokemon_analysis
+    description: >
+      One Big Table para análisis de Pokemon.
+      Incluye información básica, especie, tipos y clasificación de poder.
+    columns:
+      - name: pokemon_id
+        description: "Identificador único del Pokemon."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_pokemon_enriched')
+              field: pokemon_id
+
+      - name: pokemon_name
+        description: "Nombre del Pokemon."
+
+      - name: species_name
+        description: "Nombre de la especie."
+
+      - name: type_primary
+        description: "Tipo principal del Pokemon."
+
+      - name: type_secondary
+        description: "Tipo secundario del Pokemon."
+
+      - name: power_tier
+        description: >
+          Clasificación de poder basada en base_experience:
+          Legendary >= 200, Strong >= 100, Normal < 100.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Legendary', 'Strong', 'Normal']
