@@ -4,7 +4,7 @@
 
 \## Descripción
 
-Este proyecto fue desarrollado como parte de la \*\*tarea práctica de la Clase 6: Calidad y Testing de Datos\*\* del curso \*Introducción a la Ingeniería de Datos\*. El objetivo es extender el proyecto dbt base incorporando testing, documentación y validación completa del pipeline con `dbt build`. :contentReference\[oaicite:0]{index=0}
+Este proyecto fue desarrollado como parte de la \*\*tarea práctica de la Clase 6: Calidad y Testing de Datos\*\* del curso \*Introducción a la Ingeniería de Datos\*. El objetivo es extender el proyecto dbt base incorporando testing, documentación y validación completa del pipeline con `dbt build`.
 
 
 
